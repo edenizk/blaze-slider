@@ -35,6 +35,7 @@ export function updateTransform(slider: BlazeSlider) {
     transform = `calc( ${dragged}px + ${offset} * (var(--slide-width) + ${slider.config.slideGap}))`;
   }
 
+  console.log('console.log', config, config.isVertical);
   if (config.isVertical) {
     track.style.transform = `translate3d(0px,${transform},0px)`
   } else {

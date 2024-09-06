@@ -76,6 +76,8 @@ export interface MediaConfig extends AutomataConfig {
    * default: `true`
    */
   draggable: boolean
+
+  isVertical: boolean;
 }
 
 /** blaze slider configuration */

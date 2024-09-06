@@ -25,12 +25,20 @@ export function wrapNext(slider: BlazeSlider, count: number) {
 }
 
 export function updateTransform(slider: BlazeSlider) {
-  const { track, offset, dragged } = slider
+  const { track, offset, dragged, config } = slider
+  let transform = '0px';
 
   if (offset === 0) {
-    track.style.transform = `translate3d(${dragged}px,0px,0px)`
+    transform = dragged + 'px';
+  }
+   else {
+    transform = `calc( ${dragged}px + ${offset} * (var(--slide-width) + ${slider.config.slideGap}))`;
+  }
+
+  if (config.isVertical) {
+    track.style.transform = `translate3d(0px,${transform},0px)`
   } else {
-    track.style.transform = `translate3d(  calc( ${dragged}px + ${offset} * (var(--slide-width) + ${slider.config.slideGap})),0px,0px)`
+    track.style.transform = `translate3d(${transform},0px,0px)`
   }
 }
 

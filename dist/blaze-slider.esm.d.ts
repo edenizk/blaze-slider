@@ -66,6 +66,7 @@ interface MediaConfig extends AutomataConfig {
      */
     draggable: boolean;
     isVertical: boolean;
+    offset: string;
 }
 /** blaze slider configuration */
 type BlazeConfig = Record<string, Partial<MediaConfig>>;

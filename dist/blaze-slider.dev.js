@@ -282,7 +282,7 @@ var BlazeSlider = (function () {
           transform = dragged + 'px';
       }
       else {
-          transform = `calc( ${dragged}px + ${offset} * (var(--slide-width) + ${slider.config.slideGap}))`;
+          transform = `calc( ${dragged}px + ${offset} + ${slider.config.offset} * (var(--slide-width) + ${slider.config.slideGap}))`;
       }
       if (config.isVertical) {
           track.style.transform = `translate3d(0px,${transform},0px)`;
@@ -431,6 +431,7 @@ var BlazeSlider = (function () {
       transitionTimingFunction: 'ease',
       draggable: true,
       isVertical: false,
+      offset: '0px'
   };
   function createConfig(blazeConfig) {
       // start with default config clone

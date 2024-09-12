@@ -32,7 +32,7 @@ export function updateTransform(slider: BlazeSlider) {
     transform = dragged + 'px';
   }
    else {
-    transform = `calc( ${dragged}px + ${offset} * (var(--slide-width) + ${slider.config.slideGap}))`;
+    transform = `calc( ${dragged}px + ${offset} + ${slider.config.offset} * (var(--slide-width) + ${slider.config.slideGap}))`;
   }
 
   if (config.isVertical) {
